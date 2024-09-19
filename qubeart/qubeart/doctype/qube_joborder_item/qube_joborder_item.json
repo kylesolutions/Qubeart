@@ -12,7 +12,9 @@
   "description",
   "uom",
   "qty",
-  "warehouse"
+  "warehouse",
+  "is_frame",
+  "default_size"
  ],
  "fields": [
   {
@@ -23,6 +25,7 @@
    "options": "Item"
   },
   {
+   "fetch_from": "item_code.item_name",
    "fieldname": "item_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -52,12 +55,29 @@
    "fieldtype": "Link",
    "label": "Warehouse",
    "options": "Warehouse"
+  },
+  {
+   "default": "0",
+   "fetch_from": "item_code.custom_is_frame",
+   "fetch_if_empty": 1,
+   "fieldname": "is_frame",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Frame"
+  },
+  {
+   "fetch_from": "item_code.custom_default_size",
+   "fieldname": "default_size",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Default Size",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-18 19:32:36.581399",
+ "modified": "2024-09-18 21:08:40.284117",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Joborder Item",
