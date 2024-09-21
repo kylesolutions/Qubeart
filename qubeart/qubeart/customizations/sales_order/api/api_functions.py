@@ -25,7 +25,7 @@ def make_doc(item_details,customer,name,customer_name):
 				"uom": i.get("uom"),
 				"qty": i.get("qty"),
 				"warehouse":i.get("warehouse"),
-				"custom_frame_length": i.get("frame_length"),
-				"custom_frame_breadth": i.get("frame_breadth"),
+				"frame_length": i.get("frame_length"),
+				"frame_breadth": i.get("frame_breadth"),
 			})
 			job_order_doc.save(ignore_permissions=True)

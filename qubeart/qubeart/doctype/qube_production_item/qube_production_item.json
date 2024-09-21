@@ -73,19 +73,21 @@
    "fieldname": "frame_length",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Frame Length"
+   "label": "Frame Length",
+   "read_only": 1
   },
   {
    "fieldname": "frame_breadth",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Frame Breadth"
+   "label": "Frame Breadth",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-21 09:50:48.210868",
+ "modified": "2024-09-21 12:57:26.453111",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Production Item",
