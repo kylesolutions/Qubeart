@@ -3,6 +3,7 @@
 
 import frappe
 import math
+from frappe import _
 
 from frappe.model.document import Document
 
@@ -14,8 +15,8 @@ class QubeJobOrder(Document):
 		frame_length = 0
 		frame_breadth = 0
 		for item in self.production_item:
-			frame_length += item.frame_length 
-			frame_breadth += item.frame_breadth
+			frame_length += item.frame_length or 0
+			frame_breadth += item.frame_breadth or 0
 		for item in self.raw_materials:
 			if item.is_frame == 1:
 				frames_length = math.ceil(item.default_size / frame_length)
@@ -27,6 +28,9 @@ class QubeJobOrder(Document):
 
 @frappe.whitelist()
 def make_stock_entry(qube_job_order_id, purpose):
+	exists_stock_entry= frappe.db.get_all("Stock Entry",{"custom_qube_job_order":qube_job_order_id, "purpose": purpose})
+	if exists_stock_entry:
+		frappe.throw(_("Aleady Stock Entry Created Against {0}").format(qube_job_order_id))
 	qube_job_order = frappe.get_doc("Qube Job Order", qube_job_order_id)
 
 	stock_entry = frappe.new_doc("Stock Entry")
@@ -53,4 +57,5 @@ def make_stock_entry(qube_job_order_id, purpose):
 				stock_uom = frappe.get_value("Item", item.item_code,"stock_uom")
 			))
 	stock_entry.set_stock_entry_type()
+	stock_entry.save()
 	return stock_entry.as_dict()
