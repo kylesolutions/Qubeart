@@ -13,3 +13,6 @@ def on_submit(self, method = None):
 				    uom = i.uom,
                 ))
         qube_job_order.save()
+
+    if self.custom_qube_job_order and self.purpose == "Material Receipt":
+        frappe.db.set_value("Qube Job Order", self.custom_qube_job_order, "production_status", "Completed")

@@ -48,7 +48,7 @@
   },
   {
    "fieldname": "qty",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Qty",
    "reqd": 1
@@ -78,13 +78,13 @@
   },
   {
    "fieldname": "usage_qty",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Usage Qty",
    "read_only": 1
   },
   {
    "fieldname": "scrap_qty",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Scrap Qty",
    "read_only": 1
   }
@@ -92,7 +92,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-21 12:51:02.464519",
+ "modified": "2024-09-21 13:28:29.901960",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Joborder Item",
