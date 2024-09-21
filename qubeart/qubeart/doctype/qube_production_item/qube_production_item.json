@@ -13,7 +13,9 @@
   "uom",
   "qty",
   "warehouse",
-  "scrap_warehouse"
+  "scrap_warehouse",
+  "frame_length",
+  "frame_breadth"
  ],
  "fields": [
   {
@@ -21,32 +23,37 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Item Code",
-   "options": "Item"
+   "options": "Item",
+   "read_only": 1
   },
   {
    "fieldname": "item_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Item Name"
+   "label": "Item Name",
+   "read_only": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Text Editor",
    "in_list_view": 1,
-   "label": "Description"
+   "label": "Description",
+   "read_only": 1
   },
   {
    "fieldname": "uom",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "UOM",
-   "options": "UOM"
+   "options": "UOM",
+   "read_only": 1
   },
   {
    "fieldname": "qty",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Qty"
+   "label": "Qty",
+   "read_only": 1
   },
   {
    "fieldname": "warehouse",
@@ -61,12 +68,26 @@
    "label": "Scrap Warehouse",
    "options": "Warehouse",
    "read_only": 1
+  },
+  {
+   "fieldname": "frame_length",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Frame Length",
+   "read_only": 1
+  },
+  {
+   "fieldname": "frame_breadth",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Frame Breadth",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-18 19:30:22.224199",
+ "modified": "2024-09-21 12:57:26.453111",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Production Item",
