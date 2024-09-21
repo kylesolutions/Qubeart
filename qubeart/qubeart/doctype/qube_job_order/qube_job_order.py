@@ -25,4 +25,32 @@ class QubeJobOrder(Document):
 				item.scrap_qty = (item.qty*item.default_size) - item.usage_qty
 
 
-		
+@frappe.whitelist()
+def make_stock_entry(qube_job_order_id, purpose):
+	qube_job_order = frappe.get_doc("Qube Job Order", qube_job_order_id)
+
+	stock_entry = frappe.new_doc("Stock Entry")
+	stock_entry.purpose = purpose
+	stock_entry.custom_qube_job_order = qube_job_order_id
+	stock_entry.company = qube_job_order.company
+
+	if purpose == "Material Issue":
+		for item in qube_job_order.raw_materials:
+			stock_entry.append("items",dict(
+				s_warehouse = item.warehouse,
+				item_code = item.item_code,
+				qty = item.qty,
+				uom = item.uom,
+				stock_uom = frappe.get_value("Item", item.item_code,"stock_uom")
+			))
+	elif purpose == "Material Receipt":
+		for item in qube_job_order.production_item:
+			stock_entry.append("items",dict(
+				t_warehouse = item.warehouse,
+				item_code = item.item_code,
+				qty = item.qty,
+				uom = item.uom,
+				stock_uom = frappe.get_value("Item", item.item_code,"stock_uom")
+			))
+	stock_entry.set_stock_entry_type()
+	return stock_entry.as_dict()

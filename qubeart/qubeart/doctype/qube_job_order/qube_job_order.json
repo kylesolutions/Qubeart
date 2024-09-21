@@ -13,6 +13,7 @@
   "customer_name",
   "column_break_5xgd3",
   "naming_series",
+  "company",
   "section_break_aydrr",
   "production_item",
   "section_break_bohhc",
@@ -95,12 +96,18 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-18 19:31:21.597045",
+ "modified": "2024-09-21 11:43:22.141804",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Job Order",
