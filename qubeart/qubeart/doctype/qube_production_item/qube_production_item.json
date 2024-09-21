@@ -23,32 +23,37 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Item Code",
-   "options": "Item"
+   "options": "Item",
+   "read_only": 1
   },
   {
    "fieldname": "item_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Item Name"
+   "label": "Item Name",
+   "read_only": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Text Editor",
    "in_list_view": 1,
-   "label": "Description"
+   "label": "Description",
+   "read_only": 1
   },
   {
    "fieldname": "uom",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "UOM",
-   "options": "UOM"
+   "options": "UOM",
+   "read_only": 1
   },
   {
    "fieldname": "qty",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "Qty"
+   "label": "Qty",
+   "read_only": 1
   },
   {
    "fieldname": "warehouse",
@@ -80,7 +85,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-18 20:15:44.302348",
+ "modified": "2024-09-21 09:50:48.210868",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Production Item",
