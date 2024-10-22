@@ -14,8 +14,23 @@
   "qty",
   "warehouse",
   "scrap_warehouse",
+  "framing_details_section",
   "frame_length",
-  "frame_breadth"
+  "frame_breadth",
+  "customer_artwork",
+  "types_of_job",
+  "image_size",
+  "border",
+  "mirror",
+  "gallery_wrap_edge",
+  "column_break_frwrw",
+  "frame_code_1",
+  "frame_code_2",
+  "mount_code_1",
+  "mount_code_2",
+  "glass",
+  "drymount",
+  "hanging_system"
  ],
  "fields": [
   {
@@ -82,12 +97,103 @@
    "in_list_view": 1,
    "label": "Frame Breadth",
    "read_only": 1
+  },
+  {
+   "fieldname": "framing_details_section",
+   "fieldtype": "Section Break",
+   "label": "Framing Details"
+  },
+  {
+   "fieldname": "types_of_job",
+   "fieldtype": "Data",
+   "label": "Types of Job",
+   "read_only": 1
+  },
+  {
+   "fieldname": "image_size",
+   "fieldtype": "Data",
+   "label": "Image Size",
+   "read_only": 1
+  },
+  {
+   "fieldname": "border",
+   "fieldtype": "Data",
+   "label": "Border",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mirror",
+   "fieldtype": "Data",
+   "label": "Mirror",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gallery_wrap_edge",
+   "fieldtype": "Data",
+   "label": "Gallery Wrap (Edge)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_frwrw",
+   "fieldtype": "Column Break",
+   "read_only": 1
+  },
+  {
+   "fieldname": "frame_code_1",
+   "fieldtype": "Data",
+   "label": "Frame Code 1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "frame_code_2",
+   "fieldtype": "Data",
+   "label": "Frame Code 2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mount_code_1",
+   "fieldtype": "Data",
+   "label": "Mount Code 1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mount_code_2",
+   "fieldtype": "Data",
+   "label": "Mount Code 2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "glass",
+   "fieldtype": "Data",
+   "label": "Glass",
+   "read_only": 1
+  },
+  {
+   "fieldname": "drymount",
+   "fieldtype": "Select",
+   "label": "Drymount",
+   "options": "Yes\nNo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hanging_system",
+   "fieldtype": "Select",
+   "label": "Hanging System",
+   "options": "Yes\nNo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_artwork",
+   "fieldtype": "Select",
+   "label": "Customer Artwork",
+   "options": "Yes\nNo",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-21 12:57:26.453111",
+ "modified": "2024-10-22 21:33:02.457490",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Production Item",

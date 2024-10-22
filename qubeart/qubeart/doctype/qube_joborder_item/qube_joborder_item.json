@@ -15,6 +15,7 @@
   "usage_qty",
   "scrap_qty",
   "warehouse",
+  "scrap_warehouse",
   "is_frame",
   "default_size"
  ],
@@ -49,7 +50,7 @@
   {
    "default": "1",
    "fieldname": "qty",
-   "fieldtype": "Float",
+   "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Qty",
    "reqd": 1
@@ -82,20 +83,30 @@
   {
    "fieldname": "usage_qty",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Usage Qty",
    "read_only": 1
   },
   {
    "fieldname": "scrap_qty",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Scrap Qty",
    "read_only": 1
+  },
+  {
+   "fieldname": "scrap_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Scrap Warehouse",
+   "mandatory_depends_on": "eval:doc.is_frame",
+   "options": "Warehouse"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-21 13:28:29.901960",
+ "modified": "2024-10-22 21:43:47.034838",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Joborder Item",

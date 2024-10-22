@@ -73,7 +73,86 @@ frappe.ui.form.on("Sales Order",{
 							options:"Warehouse",
 							read_only:1,
 							label: __("Warehouse"),	
+						},
+						{
+							fieldname: "customer_artwork",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Customer Artwork"),	
+						},
+						{
+							fieldname: "types_of_job",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Types of Job"),	
+						},
+						{
+							fieldname: "image_size",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Image Size"),	
+						},
+						{
+							fieldname: "border",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Border"),	
+						},
+						{
+							fieldname: "mirror",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Mirror"),	
+						},
+						{
+							fieldname: "gallery_wrap",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Gallery Wrap"),	
+						},
+						{
+							fieldname: "frame_code1",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Frame Code 1"),	
+						},
+						{
+							fieldname: "frame_code2",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Frame Code 2"),	
+						},
+						{
+							fieldname: "mount_code1",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Mount Code 1"),	
+						},
+						{
+							fieldname: "mount_code2",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Mount Code 2"),	
+						},
+						{
+							fieldname: "glass",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Glass"),	
+						},
+						{
+							fieldname: "drymount",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("DryMount"),	
+						},
+						{
+							fieldname: "hanging_system",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Hanging System"),	
 						}
+
 					],
 				},
 			],
@@ -88,7 +167,20 @@ frappe.ui.form.on("Sales Order",{
 							notify: true,
 							customer:frm.doc.customer,
 							name:frm.doc.name,
-							customer_name:frm.doc.customer_name
+							customer_name:frm.doc.customer_name,
+							customer_artwork:frm.doc.custom_customer_artwork,
+							types_of_job:frm.doc.custom_types_of_job,
+							image_size:frm.doc.custom_image_size,
+							border:frm.doc.custom_border,
+							mirror:frm.doc.custom_mirror,
+							gallery_wrap:frm.doc.custom_gallery_wrap_edge,
+							frame_code1:frm.doc.custom_frame_code_1,
+							frame_code2:frm.doc.custom_frame_code_2,
+							mount_code1:frm.doc.custom_mount_code_1,
+							mount_code2:frm.doc.custom_mount_code_2,
+							glass:frm.doc.custom_glass,
+							drymount:frm.doc.custom_drymount,
+							hanging_system:frm.doc.custom_hanging_system,
 						},
 						freeze: true,
 						freeze_message: __("Create Job Order..."),
@@ -111,7 +203,33 @@ frappe.ui.form.on("Sales Order",{
 				description:item.description,
 				frame_length:item.custom_frame_length,
 				frame_breadth:item.custom_frame_breadth,
-				warehouse:item.warehouse
+				warehouse:item.warehouse,
+				customer_artwork:item.custom_customer_artwork,
+				types_of_job:item.custom_types_of_job,
+				image_size:item.custom_image_size,
+				border:item.custom_border,
+				mirror:item.custom_mirror,
+				gallery_wrap:item.custom_gallery_wrap_edge,
+				frame_code1:item.custom_frame_code_1,
+				frame_code2:item.custom_frame_code_2,
+				mount_code1:item.custom_mount_code_1,
+				mount_code2:item.custom_mount_code_2,
+				glass:item.custom_glass,
+				drymount:item.custom_drymount,
+				hanging_system:item.custom_hanging_system,
+
+
+
+
+
+
+
+
+
+
+
+
+
 			});
 	});
 		dialog.fields_dict.items.grid.refresh();
