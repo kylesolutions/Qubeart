@@ -27,5 +27,18 @@ def make_doc(item_details,customer,name,customer_name):
 				"warehouse":i.get("warehouse"),
 				"frame_length": i.get("frame_length"),
 				"frame_breadth": i.get("frame_breadth"),
+    			"customer_artwork":i.get("customer_artwork"),
+				"types_of_job":i.get("types_of_job"),
+				"image_size":i.get("image_size"),
+				"border":i.get("border"),				
+    			"mirror":i.get("mirror"),				
+       			"gallery_wrap_edge":i.get("gallery_wrap"),
+          		"frame_code_1":i.get("frame_code1"),				
+            	"frame_code_2":i.get("frame_code2"),				
+             	"mount_code_1":i.get("mount_code1"),				
+              	"mount_code_2":i.get("mount_code2"),				
+               	"glass":i.get("glass"),				
+                "drymount":i.get("drymount"),				
+                "hanging_system":i.get("hanging_system"),
 			})
 			job_order_doc.save(ignore_permissions=True)
