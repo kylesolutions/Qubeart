@@ -88,7 +88,7 @@ def make_stock_entry(qube_job_order_id, purpose):
 		scrap_stock_entry.company = qube_job_order.company
 		for item in qube_job_order.raw_materials:
 			if item.is_frame == 1:
-				for _ in range(item.qty):
+				for _ in range(int(item.qty)):
 					scrap_stock_entry.append("items", dict(
 						t_warehouse=item.scrap_warehouse,
 						item_code=item.item_code,
