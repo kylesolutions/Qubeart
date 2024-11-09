@@ -117,10 +117,34 @@ frappe.ui.form.on("Sales Order",{
 							label: __("Frame Code 1"),	
 						},
 						{
+							fieldname: "frame_code1_balance",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Frame Code 1 Balance"),	
+						},
+						{
 							fieldname: "frame_code2",
 							fieldtype: "Data",
 							read_only:1,
 							label: __("Frame Code 2"),	
+						},
+						{
+							fieldname: "frame_code2_balance",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Frame Code 2 Balance"),	
+						},
+						{
+							fieldname: "frame_code3",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Frame Code 3"),	
+						},
+						{
+							fieldname: "frame_code3_balance",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Frame Code 3 Balance"),	
 						},
 						{
 							fieldname: "mount_code1",
@@ -129,10 +153,34 @@ frappe.ui.form.on("Sales Order",{
 							label: __("Mount Code 1"),	
 						},
 						{
+							fieldname: "mount_code1_balance",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Mount Code 1 Balance"),	
+						},
+						{
 							fieldname: "mount_code2",
 							fieldtype: "Data",
 							read_only:1,
 							label: __("Mount Code 2"),	
+						},
+						{
+							fieldname: "mount_code2_balance",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Mount Code 2 Balance"),	
+						},
+						{
+							fieldname: "mount_code3",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Mount Code 3"),	
+						},
+						{
+							fieldname: "mount_code3_balance",
+							fieldtype: "Data",
+							read_only:1,
+							label: __("Mount Code 3 Balance"),	
 						},
 						{
 							fieldname: "glass",
@@ -168,6 +216,8 @@ frappe.ui.form.on("Sales Order",{
 							customer:frm.doc.customer,
 							name:frm.doc.name,
 							customer_name:frm.doc.customer_name,
+							delivery_date:frm.doc.delivery_date,
+							po_no:frm.doc.po_no,
 							customer_artwork:frm.doc.custom_customer_artwork,
 							types_of_job:frm.doc.custom_types_of_job,
 							image_size:frm.doc.custom_image_size,
@@ -176,8 +226,16 @@ frappe.ui.form.on("Sales Order",{
 							gallery_wrap:frm.doc.custom_gallery_wrap_edge,
 							frame_code1:frm.doc.custom_frame_code_1,
 							frame_code2:frm.doc.custom_frame_code_2,
+							frame_code3:frm.doc.custom_frame_code_3,
+							frame_code1_balance:frm.doc.custom_frame_code_1_balance,
+							frame_code2_balance:frm.doc.custom_frame_code_2_balance,
+							frame_code3_balance:frm.doc.custom_frame_code_3_balance,
 							mount_code1:frm.doc.custom_mount_code_1,
 							mount_code2:frm.doc.custom_mount_code_2,
+							mount_code3:frm.doc.custom_mount_code_3,
+							mount_code1_balance:frm.doc.custom_mount_code_1_balance,
+							mount_code2_balance:frm.doc.custom_mount_code_2_balance,
+							mount_code3_balance:frm.doc.custom_mount_code_3_balance,
 							glass:frm.doc.custom_glass,
 							drymount:frm.doc.custom_drymount,
 							hanging_system:frm.doc.custom_hanging_system,
@@ -212,8 +270,16 @@ frappe.ui.form.on("Sales Order",{
 				gallery_wrap:item.custom_gallery_wrap_edge,
 				frame_code1:item.custom_frame_code_1,
 				frame_code2:item.custom_frame_code_2,
+				frame_code3:item.custom_frame_code_3,
+				frame_code1_balance:item.custom_frame_code_1_balance,
+				frame_code2_balance:item.custom_frame_code_2_balance,
+				frame_code3_balance:item.custom_frame_code_3_balance,
 				mount_code1:item.custom_mount_code_1,
 				mount_code2:item.custom_mount_code_2,
+				mount_code3:item.custom_mount_code_3,
+				mount_code1_balance:item.custom_mount_code_1_balance,
+				mount_code2_balance:item.custom_mount_code_2_balance,
+				mount_code3_balance:item.custom_mount_code_3_balance,
 				glass:item.custom_glass,
 				drymount:item.custom_drymount,
 				hanging_system:item.custom_hanging_system,
@@ -226,3 +292,113 @@ frappe.ui.form.on("Sales Order",{
 	},
 
 })
+frappe.ui.form.on("Sales Order Item", {
+	custom_frame_code_1: async function (frm, cdt, cdn) {
+		var i = frappe.get_doc(cdt, cdn);
+		if (i.custom_frame_code_1 && i.warehouse) {
+			await frappe.db.get_value(
+				"Bin",
+				{ item_code: i.custom_frame_code_1, warehouse: i.warehouse },
+				"actual_qty",
+				(r) => {
+					if (r && r.actual_qty !== undefined) {
+						i.custom_frame_code_1_balance = r.actual_qty;
+					} else {
+						i.custom_frame_code_1_balance = 0;
+					}
+				}
+			);
+		}
+		frm.refresh_fields("items");
+	},
+	custom_frame_code_2: async function (frm, cdt, cdn) {
+		var i = frappe.get_doc(cdt, cdn);
+		if (i.custom_frame_code_2 && i.warehouse) {
+			await frappe.db.get_value(
+				"Bin",
+				{ item_code: i.custom_frame_code_2, warehouse: i.warehouse },
+				"actual_qty",
+				(r) => {
+					if (r && r.actual_qty !== undefined) {
+						i.custom_frame_code_2_balance = r.actual_qty;
+					} else {
+						i.custom_frame_code_2_balance = 0;
+					}
+				}
+			);
+		}
+		frm.refresh_fields("items");
+	},
+	custom_frame_code_3: async function (frm, cdt, cdn) {
+		var i = frappe.get_doc(cdt, cdn);
+		if (i.custom_frame_code_3 && i.warehouse) {
+			await frappe.db.get_value(
+				"Bin",
+				{ item_code: i.custom_frame_code_3, warehouse: i.warehouse },
+				"actual_qty",
+				(r) => {
+					if (r && r.actual_qty !== undefined) {
+						i.custom_frame_code_3_balance = r.actual_qty;
+					} else {
+						i.custom_frame_code_3_balance = 0;
+					}
+				}
+			);
+		}
+		frm.refresh_fields("items");
+	},
+	custom_mount_code_1: async function (frm, cdt, cdn) {
+		var i = frappe.get_doc(cdt, cdn);
+		if (i.custom_mount_code_1 && i.warehouse) {
+			await frappe.db.get_value(
+				"Bin",
+				{ item_code: i.custom_mount_code_1, warehouse: i.warehouse },
+				"actual_qty",
+				(r) => {
+					if (r && r.actual_qty !== undefined) {
+						i.custom_mount_code_1_balance = r.actual_qty;
+					} else {
+						i.custom_mount_code_1_balance = 0;
+					}
+				}
+			);
+		}
+		frm.refresh_fields("items");
+	},
+	custom_mount_code_2: async function (frm, cdt, cdn) {
+		var i = frappe.get_doc(cdt, cdn);
+		if (i.custom_mount_code_2 && i.warehouse) {
+			await frappe.db.get_value(
+				"Bin",
+				{ item_code: i.custom_mount_code_2, warehouse: i.warehouse },
+				"actual_qty",
+				(r) => {
+					if (r && r.actual_qty !== undefined) {
+						i.custom_mount_code_2_balance = r.actual_qty;
+					} else {
+						i.custom_mount_code_2_balance = 0;
+					}
+				}
+			);
+		}
+		frm.refresh_fields("items");
+	},
+	custom_mount_code_3: async function (frm, cdt, cdn) {
+		var i = frappe.get_doc(cdt, cdn);
+		if (i.custom_mount_code_3 && i.warehouse) {
+			await frappe.db.get_value(
+				"Bin",
+				{ item_code: i.custom_mount_code_3, warehouse: i.warehouse },
+				"actual_qty",
+				(r) => {
+					if (r && r.actual_qty !== undefined) {
+						i.custom_mount_code_3_balance = r.actual_qty;
+					} else {
+						i.custom_mount_code_3_balance = 0;
+					}
+				}
+			);
+		}
+		frm.refresh_fields("items");
+	},
+});

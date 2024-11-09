@@ -14,6 +14,8 @@
   "column_break_5xgd3",
   "naming_series",
   "company",
+  "delivery_date",
+  "customers_purchase_order",
   "section_break_aydrr",
   "production_item",
   "section_break_bohhc",
@@ -33,12 +35,14 @@
    "fieldname": "customer",
    "fieldtype": "Link",
    "label": "Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "read_only": 1
   },
   {
    "fieldname": "customer_name",
    "fieldtype": "Data",
-   "label": "Customer Name"
+   "label": "Customer Name",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_5xgd3",
@@ -101,7 +105,20 @@
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company"
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customers_purchase_order",
+   "fieldtype": "Data",
+   "label": "Customers Purchase Order",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -112,7 +129,7 @@
    "link_fieldname": "custom_qube_job_order"
   }
  ],
- "modified": "2024-09-24 18:33:37.077356",
+ "modified": "2024-11-09 11:05:29.308450",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Job Order",

@@ -6,7 +6,7 @@ from frappe.model.mapper import get_mapped_doc
 import json
 
 
-def make_doc(item_details,customer,name,customer_name):
+def make_doc(item_details,customer,name,customer_name,po_no,delivery_date):
 	exists_job_order= frappe.db.get_all("Qube Job Order",{"sales_order":name})
 	if exists_job_order:
 		frappe.msgprint(_("Aleady Qube Job Order Created Against {0}").format(name))
@@ -16,6 +16,8 @@ def make_doc(item_details,customer,name,customer_name):
 			job_order_doc=frappe.new_doc("Qube Job Order")
 			job_order_doc.customer=customer
 			job_order_doc.customer_name=customer_name
+			job_order_doc.delivery_date=delivery_date
+			job_order_doc.customers_purchase_order=po_no
 			job_order_doc.date=today()
 			job_order_doc.sales_order=name 
 			job_order_doc.append("production_item",{
@@ -34,9 +36,17 @@ def make_doc(item_details,customer,name,customer_name):
     			"mirror":i.get("mirror"),				
        			"gallery_wrap_edge":i.get("gallery_wrap"),
           		"frame_code_1":i.get("frame_code1"),				
-            	"frame_code_2":i.get("frame_code2"),				
+            	"frame_code_2":i.get("frame_code2"),	
+				"frame_code_3":i.get("frame_code3"),
+    			"frame_code_1_balance":i.get("frame_code1_balance"),
+       			"frame_code_2_balance":i.get("frame_code2_balance"),
+				"frame_code_3_balance":i.get("frame_code3_balance"),
              	"mount_code_1":i.get("mount_code1"),				
-              	"mount_code_2":i.get("mount_code2"),				
+              	"mount_code_2":i.get("mount_code2"),
+				"mount_code_3":i.get("mount_code3"),
+				"mount_code_1_balance":i.get("mount_code1_balance"),
+				"mount_code_2_balance":i.get("mount_code2_balance"),
+				"mount_code_3_balance":i.get("mount_code3_balance"),	
                	"glass":i.get("glass"),				
                 "drymount":i.get("drymount"),				
                 "hanging_system":i.get("hanging_system"),

@@ -5,5 +5,5 @@ import frappe
 
 
 @frappe.whitelist()
-def job_order_creation(item_details,customer,name,customer_name):
-    return make_doc(item_details,customer,name,customer_name)
+def job_order_creation(item_details,customer,name,customer_name,po_no,delivery_date):
+    return make_doc(item_details,customer,name,customer_name,po_no,delivery_date)
