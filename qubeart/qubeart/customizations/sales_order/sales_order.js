@@ -5,6 +5,27 @@ frappe.ui.form.on("Sales Order",{
 				frm.events.create_job_order(frm);
 			});
 		}
+		frm.fields_dict['items'].grid.get_field('custom_mount_code_3').get_query = function(doc, cdt, cdn) {
+            return {
+                filters: {
+                    item_group: 'Mount Board'
+                }
+            };
+        };
+		frm.fields_dict['items'].grid.get_field('custom_mount_code_2').get_query = function(doc, cdt, cdn) {
+            return {
+                filters: {
+                    item_group: 'Mount Board'
+                }
+            };
+        };
+		frm.fields_dict['items'].grid.get_field('custom_mount_code_1').get_query = function(doc, cdt, cdn) {
+            return {
+                filters: {
+                    item_group: 'Mount Board'
+                }
+            };
+        };
     },
 	create_job_order(frm) {
 		const dialog = new frappe.ui.Dialog({
