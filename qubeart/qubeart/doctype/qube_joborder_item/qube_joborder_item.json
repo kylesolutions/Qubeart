@@ -60,8 +60,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Warehouse",
-   "options": "Warehouse",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.__islocal !=1",
+   "options": "Warehouse"
   },
   {
    "default": "0",
@@ -93,18 +93,18 @@
    "read_only": 1
   },
   {
-    "fieldname": "scrap_warehouse",
-    "fieldtype": "Link",
-    "in_list_view": 1,
-    "label": "Scrap Warehouse",
-    "mandatory_depends_on": "eval:doc.is_frame",
-    "options": "Warehouse"
-   }
+   "fieldname": "scrap_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Scrap Warehouse",
+   "mandatory_depends_on": "eval:doc.is_frame",
+   "options": "Warehouse"
+  }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-10-22 21:43:47.034838",
+ "modified": "2024-11-28 17:47:00.599402",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Joborder Item",
