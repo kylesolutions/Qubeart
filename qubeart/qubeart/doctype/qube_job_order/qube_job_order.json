@@ -89,7 +89,7 @@
    "fieldname": "production_status",
    "fieldtype": "Select",
    "label": "Production Status",
-   "options": "In Progress\nCompleted"
+   "options": "\nIn Progress\nMaterial Issued\nProduction Completed\nQC Check\nCompleted"
   },
   {
    "fieldname": "amended_from",
@@ -129,7 +129,7 @@
    "link_fieldname": "custom_qube_job_order"
   }
  ],
- "modified": "2024-11-09 11:05:29.308450",
+ "modified": "2024-11-28 08:48:53.945774",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Job Order",
