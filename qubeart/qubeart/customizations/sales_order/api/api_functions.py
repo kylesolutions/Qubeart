@@ -54,6 +54,8 @@ def make_doc(item_details,customer,name,customer_name,po_no,delivery_date):
 			for item in ["frame_code1", "frame_code2", "frame_code3", "mount_code1", "mount_code2", "mount_code3"]:
 				if i.get(item):  # Ensure the item_code is not None
 					job_order_doc.append("raw_materials", {
-						"item_code": i.get(item)
+						"item_code": i.get(item),
+       					"warehouse": i.get("warehouse"),
+						"scrap_warehouse":i.get("warehouse")
 					})
 			job_order_doc.save(ignore_permissions=True)
