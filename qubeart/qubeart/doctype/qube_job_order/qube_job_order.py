@@ -56,7 +56,7 @@ class QubeJobOrder(Document):
 def make_stock_entry(qube_job_order_id, purpose):
 	exists_stock_entry= frappe.db.get_all("Stock Entry",{"custom_qube_job_order":qube_job_order_id, "purpose": purpose})
 	if exists_stock_entry:
-		frappe.throw(_("Aleady Stock Entry {1} Created Against {0}").format(qube_job_order_id,get_link_to_form("Stock Entry", exists_stock_entry[0].name)))
+		frappe.throw(("Aleady Stock Entry {1} Created Against {0}").format(qube_job_order_id,get_link_to_form("Stock Entry", exists_stock_entry[0].name)))
 	qube_job_order = frappe.get_doc("Qube Job Order", qube_job_order_id)
 
 	stock_entry = frappe.new_doc("Stock Entry")
