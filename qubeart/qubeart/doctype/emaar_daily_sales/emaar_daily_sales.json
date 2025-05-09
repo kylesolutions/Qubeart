@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-05-06 12:56:20.404203",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_xm4t",
+  "amended_from",
+  "date",
+  "invoice_count",
+  "total_amount",
+  "naming_series",
+  "column_break_ptyk",
+  "lease_code",
+  "unit_no",
+  "api_response"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_xm4t",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Emaar Daily Sales",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "invoice_count",
+   "fieldtype": "Int",
+   "label": "Invoice Count"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "EDS.-.####"
+  },
+  {
+   "fieldname": "column_break_ptyk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "t0019893",
+   "fieldname": "lease_code",
+   "fieldtype": "Data",
+   "label": "LEASE CODE",
+   "read_only": 1
+  },
+  {
+   "default": "DHM-P1-025",
+   "fieldname": "unit_no",
+   "fieldtype": "Data",
+   "label": "UNIT NO.",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "api_response",
+   "fieldtype": "Long Text",
+   "label": "API Response"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-05-06 13:57:11.764394",
+ "modified_by": "Administrator",
+ "module": "Qubeart",
+ "name": "Emaar Daily Sales",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-05-09 14:31:08.802454",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_e4tl",
+  "amended_from",
+  "from_date",
+  "to_date",
+  "invoice_count",
+  "total_amount",
+  "column_break_eulb",
+  "lease_code",
+  "unit_no",
+  "remarks",
+  "api_response"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_e4tl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Monthly Sales Emaar",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "invoice_count",
+   "fieldtype": "Int",
+   "label": "Invoice Count"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "column_break_eulb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "t0019893",
+   "fieldname": "lease_code",
+   "fieldtype": "Data",
+   "label": "Lease Code"
+  },
+  {
+   "default": "DHM-P1-025",
+   "fieldname": "unit_no",
+   "fieldtype": "Data",
+   "label": "Unit No"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "api_response",
+   "fieldtype": "Long Text",
+   "label": "API Response"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-05-09 15:06:56.223289",
+ "modified_by": "Administrator",
+ "module": "Qubeart",
+ "name": "Monthly Sales Emaar",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

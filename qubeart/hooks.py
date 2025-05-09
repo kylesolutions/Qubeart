@@ -119,8 +119,15 @@ doctype_js = {"Sales Order" : "qubeart/customizations/sales_order/sales_order.js
 doc_events = {
 	"Stock Entry": {
 		"on_submit": "qubeart.qubeart.customizations.stock_entry.stock_entry.on_submit",
-	}
+	},
+	"Emaar Daily Sales": {
+        "validate": "qubeart.qubeart.doctype.emaar_daily_sales.emaar_daily_sales.validate"
+    },
+	"Monthly Sales Emaar": {
+        "validate": "qubeart.qubeart.doctype.monthly_sales_emaar.monthly_sales_emaar.validate"
+    }
 }
+
 
 # Scheduled Tasks
 # ---------------
