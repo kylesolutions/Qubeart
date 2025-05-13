@@ -22,6 +22,7 @@ def validate(doc, method):
     sales_invoices = frappe.get_all(
         "Sales Invoice",
         filters={
+            "custom_branch": "Qube Art General Trading LLC(Branch)",
             "posting_date": ["between", [doc.from_date, doc.to_date]],
             "docstatus": 1
         },

@@ -13,6 +13,13 @@ from frappe.model.document import Document
 class QubeJobOrder(Document):
 	def validate(self):
 		self.calculate_qty()
+		if self.production_status == "Production Completed":
+			frappe.throw("Cannot changed Production Completed Manually")
+
+	def on_submit(self):
+		if not self.qc_status:
+			frappe.throw("Cannot Submit Without Qc Status")
+
 	
 	def calculate_qty(self):
 		frame_length = 0

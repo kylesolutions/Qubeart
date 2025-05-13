@@ -11,6 +11,7 @@
   "date",
   "customer",
   "customer_name",
+  "final_image",
   "column_break_5xgd3",
   "naming_series",
   "company",
@@ -27,6 +28,7 @@
   "production_status",
   "qc_status",
   "reason_for_fail",
+  "qc_image",
   "amended_from"
  ],
  "fields": [
@@ -93,10 +95,11 @@
    "read_only": 1
   },
   {
+   "default": "Production Start",
    "fieldname": "production_status",
    "fieldtype": "Select",
    "label": "Production Status",
-   "options": "\nIn Progress\nMaterial Issued\nProduction Completed\nQC Check\nCompleted",
+   "options": "Production Start\nProduction In Progress\nProduction Completed\nQC Check",
    "permlevel": 1
   },
   {
@@ -134,7 +137,6 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.production_status==\"QC Check\"",
    "fieldname": "qc_status",
    "fieldtype": "Select",
    "label": "Qc Status",
@@ -155,6 +157,18 @@
    "fieldname": "reference_details_tab",
    "fieldtype": "Tab Break",
    "label": "Reference Details"
+  },
+  {
+   "fieldname": "final_image",
+   "fieldtype": "Attach",
+   "label": "Final Image"
+  },
+  {
+   "depends_on": "eval: doc.qc_status == \"Fail\"",
+   "fieldname": "qc_image",
+   "fieldtype": "Attach",
+   "label": "Qc Image",
+   "mandatory_depends_on": "eval: doc.qc_status == \"Fail\""
   }
  ],
  "index_web_pages_for_search": 1,
@@ -165,7 +179,7 @@
    "link_fieldname": "custom_qube_job_order"
   }
  ],
- "modified": "2025-05-02 08:55:03.505537",
+ "modified": "2025-05-13 21:01:40.212797",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Job Order",

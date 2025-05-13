@@ -12,7 +12,7 @@ def on_submit(self, method = None):
 				    qty = i.qty,
 				    uom = i.uom,
                 ))
-        qube_job_order.production_status = "Material Issued"
+        qube_job_order.production_status = "Production In Progress"
         qube_job_order.save()
 
     if self.custom_qube_job_order and self.purpose == "Material Receipt":
