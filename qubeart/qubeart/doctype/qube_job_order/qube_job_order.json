@@ -21,14 +21,15 @@
   "production_item",
   "section_break_bohhc",
   "raw_materials",
-  "reference_details_tab",
-  "referrence",
-  "sales_order",
   "status_details_section",
   "production_status",
+  "column_break_570xj",
   "qc_status",
   "reason_for_fail",
   "qc_image",
+  "reference_details_tab",
+  "referrence",
+  "sales_order",
   "amended_from"
  ],
  "fields": [
@@ -99,8 +100,7 @@
    "fieldname": "production_status",
    "fieldtype": "Select",
    "label": "Production Status",
-   "options": "Production Start\nProduction In Progress\nProduction Completed\nQC Check",
-   "permlevel": 1
+   "options": "Production Start\nProduction In Progress\nProduction Completed\nQC Check"
   },
   {
    "fieldname": "amended_from",
@@ -169,6 +169,10 @@
    "fieldtype": "Attach",
    "label": "Qc Image",
    "mandatory_depends_on": "eval: doc.qc_status == \"Fail\""
+  },
+  {
+   "fieldname": "column_break_570xj",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -179,7 +183,7 @@
    "link_fieldname": "custom_qube_job_order"
   }
  ],
- "modified": "2025-05-13 21:01:40.212797",
+ "modified": "2025-05-15 08:55:16.494407",
  "modified_by": "Administrator",
  "module": "Qubeart",
  "name": "Qube Job Order",
@@ -200,6 +204,19 @@
    "select": 1,
    "share": 1,
    "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Sales Manager",
+   "select": 1,
+   "share": 1,
    "write": 1
   }
  ],
