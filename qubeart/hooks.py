@@ -132,7 +132,15 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
+	"cron": {
+		"59 23 * * *":: [
+			"qubeart.qubeart.customizations.scheduler_jobs.emaar_sales_creation.emaar_daily_sales_automatic_creation"
+		],
+		"0 6 * * *":: [
+			"qubeart.qubeart.customizations.scheduler_jobs.emaar_sales_creation.emaar_data_Send"
+		],
+	},
 # 	"all": [
 # 		"qubeart.tasks.all"
 # 	],
@@ -148,7 +156,7 @@ doc_events = {
 # 	"monthly": [
 # 		"qubeart.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------

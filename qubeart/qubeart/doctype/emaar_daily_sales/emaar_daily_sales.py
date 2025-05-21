@@ -66,17 +66,18 @@ def send_emaar_data(docname):
 
         if response.status_code == 200:
             return "success"
+            frappe.log_error(title="Emaar Daily Sales Data Send Success Log",message = response.text )
         else:
             try:
                 error_msg = response.json().get("ErrorMsg", "Unknown error")
             except Exception:
                 error_msg = response.text
-
-            frappe.throw(f"Emaar API Error: {error_msg}")
+            frappe.log_error(title="Emaar Daily Sales Data Send Failed Log",message = error_msg )
+            # frappe.throw(f"Emaar API Error: {error_msg}")
 
     except Exception:
         error_text = frappe.get_traceback()
         doc.api_response = error_text
         doc.save(ignore_permissions=True)
         frappe.log_error(error_text, _("Emaar API Exception"))
-        frappe.throw("Failed to connect to Emaar API.")
+        # frappe.throw("Failed to connect to Emaar API.")
