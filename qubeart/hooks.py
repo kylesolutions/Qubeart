@@ -140,6 +140,9 @@ scheduler_events = {
 		"0 6 * * *": [
 			"qubeart.qubeart.customizations.scheduler_jobs.emaar_sales_creation.emaar_data_Send"
 		],
+		 "0 1 1 * *": [
+			"qubeart.qubeart.customizations.scheduler_jobs.emaar_sales_creation.create_and_send_emaar_monthly_sales"
+		 ]
 	},
 # 	"all": [
 # 		"qubeart.tasks.all"
