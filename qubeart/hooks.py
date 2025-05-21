@@ -134,10 +134,10 @@ doc_events = {
 
 scheduler_events = {
 	"cron": {
-		"59 23 * * *":: [
+		"59 23 * * *": [
 			"qubeart.qubeart.customizations.scheduler_jobs.emaar_sales_creation.emaar_daily_sales_automatic_creation"
 		],
-		"0 6 * * *":: [
+		"0 6 * * *": [
 			"qubeart.qubeart.customizations.scheduler_jobs.emaar_sales_creation.emaar_data_Send"
 		],
 	},
