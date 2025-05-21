@@ -63,10 +63,11 @@ def send_emaar_data(docname):
         # Store full raw response text
         doc.api_response = response.text
         doc.save(ignore_permissions=True)
-
+       
         if response.status_code == 200:
-            return "success"
             frappe.log_error(title="Emaar Daily Sales Data Send Success Log",message = response.text )
+            return "success"
+            
         else:
             try:
                 error_msg = response.json().get("ErrorMsg", "Unknown error")

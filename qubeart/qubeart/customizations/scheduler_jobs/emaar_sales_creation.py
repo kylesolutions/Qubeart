@@ -4,7 +4,7 @@ from qubeart.qubeart.doctype.emaar_daily_sales.emaar_daily_sales import send_ema
 
 def emaar_daily_sales_automatic_creation():
     doc = frappe.new_doc("Emaar Daily Sales")
-    doc.date = utils.today()
+    doc.date = today()
     doc.insert(ignore_permissions=True)
     doc.save()
     doc.submit()
